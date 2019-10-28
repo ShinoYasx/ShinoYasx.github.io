@@ -20,6 +20,12 @@ function drawPixel(x, y, color) {
     ctx.closePath();
 }
 
+function clrQueue() {
+    let f = snake.body.shift();
+    ctx.clearRect(f.x * 10, f.y * 10, 10, 10);
+
+}
+
 function move() {
     snake.body.push({ x: snake.head.x, y: snake.head.y });
     if (snake.head.x == apple.x && snake.head.y == apple.y) {
@@ -27,7 +33,7 @@ function move() {
         drawPixel(apple.x, apple.y, 'red');
         scoreInc();
     } else
-        snake.body.shift();
+        clrQueue();
     if (direction == 0 && snake.head.x + 1 < 20) {
         snake.head.x++;
     } else if (direction == 1 && snake.head.y + 1 < 20) {
@@ -65,7 +71,6 @@ function game() {
         apple = rndApple();
         start = false;
     }
-    ctx.clearRect(0, 0, BG.width, BG.height);
 
     move();
 
@@ -77,6 +82,8 @@ function game() {
 function restart() {
     clearInterval(gameI);
     button_start.firstChild.data = 'Restart';
+
+    ctx.clearRect(0, 0, BG.width, BG.height);
 
     bPlaying = true;
     start = true;
