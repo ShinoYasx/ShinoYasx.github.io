@@ -3,20 +3,11 @@ var ctx = BG.getContext('2d');
 var score;
 var direction;
 var start;
-var x, y;
 var gameI;
 var bPlaying = false;
 var button_start = document.getElementById('button_start');
-var snake = {
-    x: 0,
-    y: 0,
-    body: [
-        {
-            x,
-            y
-        }
-    ]
-}
+var snake;
+var apple;
 
 function scoreInc() {
     document.getElementById("score").innerHTML = ++score;
@@ -29,16 +20,23 @@ function drawPixel(x, y, color) {
     ctx.closePath();
 }
 
-function newPos(x, y) {
-    if (direction == 0)
-        x += 1;
-    if (direction == 1)
-        y += 1;
-    if (direction == 2)
-        x -= 1;
-    if (direction == 3)
-        y -= 1;
-    return { x: x, y: y }
+function move() {
+    snake.body.push({ x: snake.head.x, y: snake.head.y });
+    if (snake.head.x == apple.x && snake.head.y == apple.y) {
+        apple = rndApple();
+        drawPixel(apple.x, apple.y, 'red');
+        scoreInc();
+    } else
+        snake.body.shift();
+    if (direction == 0 && snake.head.x + 1 < 20) {
+        snake.head.x++;
+    } else if (direction == 1 && snake.head.y + 1 < 20) {
+        snake.head.y++;
+    } else if (direction == 2 && snake.head.x - 1 >= 0) {
+        snake.head.x--;
+    } else if (direction == 3 && snake.head.y - 1 >= 0) {
+        snake.head.y--;
+    } else gameOver();
 }
 
 function rndApple() {
@@ -54,7 +52,12 @@ function gameOver() {
     ctx.beginPath();
     ctx.font = '30px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('Game over !', BG.width / 2, BG.height / 2)
+    ctx.fillText('Game over !', BG.width / 2, BG.height / 2);
+    ctx.closePath();
+}
+
+function eat() {
+
 }
 
 function game() {
@@ -62,48 +65,56 @@ function game() {
         apple = rndApple();
         start = false;
     }
-    // ctx.clearRect(0, 0, BG.width, BG.height);
+    ctx.clearRect(0, 0, BG.width, BG.height);
 
-    pos = newPos(x, y);
-    x = pos.x;
-    y = pos.y;
+    move();
 
-    if (x == apple.x && y == apple.y) {
-        apple = rndApple();
-        drawPixel(apple.x, apple.y, 'red');
-        scoreInc();
-    }
+
     drawPixel(apple.x, apple.y, 'red');
-    drawPixel(x, y);
-
-    if (x >= 20 || x < 0 || y >= 20 || y < 0) {
-        gameOver();
-    }
+    drawPixel(snake.head.x, snake.head.y);
 }
 
 function restart() {
     clearInterval(gameI);
-    button_start.firstChild.data = 'Restart'
+    button_start.firstChild.data = 'Restart';
 
     bPlaying = true;
     start = true;
 
+    snake = {
+        head: {},
+        body: []
+    };
+    apple = {};
+
     document.getElementById("score").innerHTML = score = 0;
     direction = 0;
-    x = BG.width / 20, y = BG.height / 20;
+    snake.head.x = BG.width / 20, snake.head.y = BG.height / 20;
 
     gameI = setInterval(game, 100);
 }
 
 document.addEventListener('keydown', (ev) => {
-    if (ev.code === "ArrowRight")
-        direction = 0;
-    if (ev.code === "ArrowDown")
-        direction = 1;
-    if (ev.code === "ArrowLeft")
-        direction = 2;
-    if (ev.code === "ArrowUp")
-        direction = 3;
-    if (ev.code === "Space" && !bPlaying)
-        restart();
+    switch (ev.code) {
+        case 'ArrowRight':
+            direction = 0;
+            break;
+        case 'ArrowDown':
+            direction = 1;
+            break;
+        case 'ArrowLeft':
+            direction = 2;
+            break;
+        case 'ArrowUp':
+            direction = 3;
+            break;
+        case 'Space':
+            if (!bPlaying)
+                restart();
+            break;
+        case 'Escape':
+            if (bPlaying)
+                gameOver();
+            break;
+    }
 });
