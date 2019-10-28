@@ -23,7 +23,17 @@ function drawPixel(x, y, color) {
 function clrQueue() {
     let f = snake.body.shift();
     ctx.clearRect(f.x * 10, f.y * 10, 10, 10);
+}
 
+function gameOver() {
+    clearInterval(gameI);
+    bPlaying = false;
+    button_start.firstChild.data = 'Restart (space)'
+    ctx.beginPath();
+    ctx.font = '30px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game over !', BG.width / 2, BG.height / 2);
+    ctx.closePath();
 }
 
 function move() {
@@ -43,27 +53,16 @@ function move() {
     } else if (direction == 3 && snake.head.y - 1 >= 0) {
         snake.head.y--;
     } else gameOver();
+    snake.body.forEach(el => {
+        if (snake.head.x == el.x && snake.head.y == el.y)
+            gameOver();
+    });
 }
 
 function rndApple() {
     let x = Math.floor(Math.random() * 20);
     let y = Math.floor(Math.random() * 20);
     return { x: x, y: y }
-}
-
-function gameOver() {
-    clearInterval(gameI);
-    bPlaying = false;
-    button_start.firstChild.data = 'Restart (space)'
-    ctx.beginPath();
-    ctx.font = '30px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('Game over !', BG.width / 2, BG.height / 2);
-    ctx.closePath();
-}
-
-function eat() {
-
 }
 
 function game() {
@@ -73,7 +72,6 @@ function game() {
     }
 
     move();
-
 
     drawPixel(apple.x, apple.y, 'red');
     drawPixel(snake.head.x, snake.head.y);
@@ -104,16 +102,20 @@ function restart() {
 document.addEventListener('keydown', (ev) => {
     switch (ev.code) {
         case 'ArrowRight':
-            direction = 0;
+            if (!snake.body.length || direction != 2)
+                direction = 0;
             break;
         case 'ArrowDown':
-            direction = 1;
+            if (!snake.body.length || direction != 3)
+                direction = 1;
             break;
         case 'ArrowLeft':
-            direction = 2;
+            if (!snake.body.length || direction != 0)
+                direction = 2;
             break;
         case 'ArrowUp':
-            direction = 3;
+            if (!snake.body.length || direction != 1)
+                direction = 3;
             break;
         case 'Space':
             if (!bPlaying)
