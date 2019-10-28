@@ -32,6 +32,7 @@ function gameOver() {
     ctx.beginPath();
     ctx.font = '30px Arial';
     ctx.textAlign = 'center';
+    ctx.fillStyle = '#FFFF00';
     ctx.fillText('Game over !', BG.width / 2, BG.height / 2);
     ctx.closePath();
 }
@@ -62,6 +63,10 @@ function move() {
 function rndApple() {
     let x = Math.floor(Math.random() * 20);
     let y = Math.floor(Math.random() * 20);
+    snake.body.forEach(el => {
+        if (x == el.x && y == el.y)
+            return rndApple();
+    })
     return { x: x, y: y }
 }
 
