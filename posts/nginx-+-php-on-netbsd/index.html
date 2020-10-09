@@ -21,7 +21,7 @@
 
 
 <meta property="og:title" content="Installation de Nginx et PHP sur NetBSD" />
-<meta property="og:description" content="Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toast.
+<meta property="og:description" content="Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.
 Cet article va traiter de l&rsquo;installation du gestionnaire de paquets pkgin, de nginx et de php, ainsi de la configuration de ces derniers.
 Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante." />
 <meta property="og:type" content="article" />
@@ -31,7 +31,7 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installation de Nginx et PHP sur NetBSD"/>
-<meta name="twitter:description" content="Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toast.
+<meta name="twitter:description" content="Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.
 Cet article va traiter de l&rsquo;installation du gestionnaire de paquets pkgin, de nginx et de php, ainsi de la configuration de ces derniers.
 Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante."/>
 
@@ -101,28 +101,28 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
     
     <div class="post-content markdown-body">
         <h2 id="introduction">Introduction</h2>
-<p>Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toast.</p>
+<p>Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.</p>
 <p>Cet article va traiter de l&rsquo;installation du gestionnaire de paquets <a href="https://pkgin.net" target="_blank">pkgin</a>, de <a href="https://www.nginx.com" target="_blank">nginx</a> et de <a href="https://www.php.net" target="_blank">php</a>, ainsi de la configuration de ces derniers.</p>
 <h2 id="installation-de-pkgin">Installation de pkgin</h2>
-<p>Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante.</p>
-<p>pkgin est un gestionnaire de paquets pour NetBSD, à la manière de apt-get si vous avez déjà touché à Debian ou Ubuntu, pacman pour Archlinux, yum pour Fedora et CentOS, &hellip;</p>
-<p>Pour l&rsquo;installer, on va utiliser sa version précompilée fournie par NetBSD. La commande <code>pkg_add</code>, de l&rsquo;outil <a href="https://www.netbsd.org/docs/pkgsrc/" target="_blank">pkgsrc</a> permet d&rsquo;installer un paquet à partir d&rsquo;un URL. On peut définir la variable d&rsquo;environnement <code>PKG_PATH</code></p>
+<p>Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la <a href="#php-fpm">section suivante</a>.</p>
+<p>pkgin est un gestionnaire de paquets pour NetBSD, à la manière de apt-get si vous avez déjà touché à Debian ou Ubuntu, pacman pour Archlinux, yum pour Fedora et CentOS, etc.</p>
+<p>Pour l&rsquo;installer, on va utiliser sa version précompilée fournie par NetBSD. La commande <code>pkg_add</code>, de l&rsquo;outil <a href="https://www.netbsd.org/docs/pkgsrc/" target="_blank">pkgsrc</a> permet d&rsquo;installer un paquet à partir d&rsquo;une URL. On peut définir la variable d&rsquo;environnement <code>PKG_PATH</code> afin de dire à <code>pkg_add</code> où trouver les paquets</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export PKG_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/</span><span style="color:#66d9ef">$(</span>uname -p<span style="color:#66d9ef">)</span><span style="color:#e6db74">/</span><span style="color:#66d9ef">$(</span>uname -r<span style="color:#66d9ef">)</span><span style="color:#e6db74">/All&#34;</span>
 </code></pre></div><p>Et maintenant, on va installer pkgin</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkg_add pkgin
 </code></pre></div><p>On peut éventuellement éditer la configuration de pkgin</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi /usr/pkg/etc/pkgin/repositories.conf
-</code></pre></div><p>Je change de <code>$arch</code> vers <code>aarch64</code> dans mon cas car je tourne sur un Raspberry Pi 3, sinon renseigner votre architecture (<code>uname -p</code>)</p>
+</code></pre></div><p>Je change la variable <code>$arch</code> vers <code>aarch64</code> dans mon cas, car mon grille-pain se trouve être un Raspberry Pi 3, sinon renseigner votre architecture (<code>uname -p</code>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">https://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/aarch64/9.0/All</span>
 </code></pre></div><p>Maintenant on met à jour la liste des paquets</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkgin update
-</code></pre></div><p>Ca y est, vous avez un gestionnaire de paquets tout beau, tout neuf! Passons maintenant au vif du sujet.</p>
+</code></pre></div><p>Ça y est, vous avez un gestionnaire de paquets tout beau, tout neuf ! Passons maintenant au vif du sujet.</p>
 <h2 id="php-fpm">PHP-FPM</h2>
 <p>PHP-FPM (FastCGI Process Manager) est une API permettant de connecter un serveur web (Nginx dans notre cas) et PHP, via l&rsquo;utilisation d&rsquo;un socket.</p>
 <h3 id="installation-de-php-fpm">Installation de PHP-FPM</h3>
 <p>Pour l&rsquo;installer, rien de plus simple</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkgin in php74-fpm
-</code></pre></div><p>Vous remarquerez le <em>74</em> dans <em>php74-fpm</em>, il s&rsquo;agit en fait de la version 7.4 de PHP. Vous pouvez faire un <code>pkgin search php</code> pour chercher une version plus récente de <em>php-fpm</em>, PHP 7.4 étant le dernier à date d&rsquo;écriture.</p>
+</code></pre></div><p>Vous remarquerez le <em>74</em> dans <em>php74-fpm</em>; il s&rsquo;agit en fait de la version 7.4 de PHP. Vous pouvez faire un <code>pkgin search php</code> pour chercher une version plus récente de <em>php-fpm</em>, PHP 7.4 étant la dernière en date au moment de la rédaction.</p>
 <h3 id="configuration-de-php-fpm">Configuration de PHP-FPM</h3>
 <p>On remarquera que le gentil monsieur nous dit quoi faire, en effet dans le terminal on peut lire</p>
 <pre><code class="language-console" data-lang="console">The following files should be created for php74-fpm-7.4.10nb4:
@@ -131,16 +131,16 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
             [/usr/pkg/share/examples/rc.d/php_fpm]
 </code></pre><p>Alors on peut simplement copier le fichier <code>php_fpm</code> dans <code>/etc/rc.d/</code>, étant le fichier d&rsquo;initialisation du serveur (celui qui permet le démarrage, l&rsquo;arrêt, le redémarage, &hellip; de php-fpm)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cp /usr/pkg/share/examples/rc.d/php_fpm /etc/rc.d/php_fpm
-</code></pre></div><p>On doit maintenant rajouter la règle d&rsquo;initialisation dans <code>/etc/rc.conf</code>. À la fin, ajouter</p>
+</code></pre></div><p>Le <a href="https://www.netbsd.org/docs/guide/en/chap-rc.html" target="_blank">système rc.d</a> permet d&rsquo;exécuter des programmes automatiquement au démarrage du système. On peut donc ajouter la règle d&rsquo;initialisation de php-fpm dans <code>/etc/rc.conf</code>. À la fin du fichier, ajouter</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">php_fpm</span><span style="color:#f92672">=</span><span style="color:#e6db74">YES</span>
-</code></pre></div><p>Maintenant il ne nous reste plus qu&rsquo;à activer le service</p>
+</code></pre></div><p>Maintenant il ne nous reste plus qu&rsquo;à démarer le service</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">service php_fpm start
-</code></pre></div><p>Si vous obtenez le message <em>Starting php_fpm.</em>, c&rsquo;est parfait!</p>
-<p>C&rsquo;est tout pour PHP. Maintenant passons à Nginx</p>
+</code></pre></div><p>Si vous obtenez le message <em>Starting php_fpm.</em>, c&rsquo;est parfait !</p>
+<p>C&rsquo;est tout pour PHP. Maintenant passons à Nginx.</p>
 <h2 id="nginx">NGINX</h2>
-<p>Nginx (à prononcer engine-x) est un serveur HTTP assez léger codé en C++, qui conviendra parfaitement à nos besoins de légerté concernant l&rsquo;hébergement web chez le pain de mie (le grille-pain, vous vous souvenez ?)</p>
+<p>Nginx (à prononcer engine-x) est un serveur HTTP assez léger écrit en C++, qui conviendra parfaitement à nos besoins de légerté concernant l&rsquo;hébergement web chez le pain de mie (le grille-pain, vous vous souvenez ?)</p>
 <h3 id="installation-de-nginx">Installation de Nginx</h3>
-<p>Pour installer Nginx et toute ses dépendances</p>
+<p>Pour installer Nginx et toutes ses dépendances</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkgin in nginx
 </code></pre></div><h3 id="configuration-de-nginx">Configuration de Nginx</h3>
 <p>Comme avant, l&rsquo;installeur nous donne quelques tâches à faire pour finaliser l&rsquo;installation</p>
@@ -157,7 +157,7 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
 </code></pre></div><p>Si tout se passe bien, vous obenez le message <em>Starting nginx.</em></p>
 <h3 id="hello-world">Hello, World</h3>
 <p>Ca y est ! Vous pouvez dès à présent accéder à votre grille-pain du futur depuis votre smartphone via le navigateur. Vous allez obtenir la page par défaut de Nginx</p>
-<p><img class="img-zoomable" src="/static/Nginx_welcome.png" alt="Nginx welcome" />
+<p><img class="img-zoomable" src="/img/Nginx_welcome.png" alt="Nginx welcome" />
 </p>
 <p>C&rsquo;est déjà bien, mais avec ça vous ne pouvez toujours pas exécuter de PHP coté serveur. Il va falloir approfondir les configurations.</p>
 <h3 id="configuration-avancée-de-nginx">Configuration avancée de Nginx</h3>
@@ -165,8 +165,8 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#66d9ef">server</span> {
     <span style="color:#f92672">listen</span>       <span style="color:#ae81ff">80</span>;
     <span style="color:#f92672">server_name</span>  <span style="color:#e6db74">localhost</span>;
-    <span style="color:#f92672">root</span>         <span style="color:#e6db74">/var/www</span>;
-    <span style="color:#75715e">#charset koi8-r;
+    <span style="color:#f92672">root</span>         <span style="color:#e6db74">/var/www</span>; <span style="color:#75715e"># Racine des documents; vous pouvez la modifier si besoin
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">#charset koi8-r;
 </span><span style="color:#75715e"></span>
     <span style="color:#75715e">#access_log  /var/log/nginx/host.access.log  main;
 </span><span style="color:#75715e"></span>
@@ -200,11 +200,18 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
 </code></pre></div><p>Maintenant on peut redémarer les services</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">service php_fpm restart
 service nginx restart
-</code></pre></div><p>On peut maintenant créer un fichier dans la racine de notre serveur web <code>/var/www/index.php</code> (ou votre racine si vous en avez choisi une autre)</p>
+</code></pre></div><p>On peut maintenant créer un fichier à la racine de notre serveur web <code>/var/www/index.php</code> (ou votre racine si vous en avez choisi une autre)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">phpinfo</span>();
 <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>Et voilà! Vous devriez tomber sur la page d&rsquo;information PHP.</p>
+</span></code></pre></div><p>Et voilà ! Vous devriez tomber sur la page d&rsquo;information PHP en essayant d&rsquo;accéder à votre machine via un navigateur.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Maintenant que vous avez un seveur web Nginx + PHP, vous pouvez héberger toutes sortes de contenus. Cependant beaucoup d&rsquo;applications PHP requiert des bibliothèques supplémentaires pour fonctionner.</p>
+<p>Par exemple, la bibliothèque <a href="https://www.php.net/manual/en/book.intl.php" target="_blank">php-intl</a> qui permet d&rsquo;étendre la prise en charge des caractères <a href="https://en.wikipedia.org/wiki/Unicode" target="_blank">Unicode</a>, peut s&rsquo;installer sur PHP 7.4 de cette manière</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pkgin in php74-intl
+</code></pre></div><p>Et il reste à redémarer le serveur PHP-FPM pour prendre en compte les changements</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">service php_fpm restart
+</code></pre></div><p>De prochains articles sur l&rsquo;installations d&rsquo;applications web comme <a href="https://nextcloud.com" target="_blank">Nextcloud</a> ou <a href="https://www.passbolt.com" target="_blank">Passbolt</a> permettront d&rsquo;approfondir les détails de configuration de ces services.</p>
 
     </div>
 </article>
