@@ -15,20 +15,26 @@
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon.ico" />
 
 
-<title>Archives - Hugo Haldi (ShinoYasx)&#39;s blog</title>
+<title>Memos Bash et C - Hugo Haldi (ShinoYasx)&#39;s blog</title>
 
 
 
+<meta name="description" content="Quelques aides mémoires pour le Bash et le langage C" />
 
-<meta property="og:title" content="Archives" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shinoyasx.github.io/archives/" />
+
+<meta name="keywords" content="Programmation, memo" />
+
+<meta property="og:title" content="Memos Bash et C" />
+<meta property="og:description" content="Quelques aides mémoires pour le Bash et le langage C" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-02T12:55:38&#43;02:00" />
+<meta property="article:modified_time" content="2021-05-02T12:55:38&#43;02:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Archives"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Memos Bash et C"/>
+<meta name="twitter:description" content="Quelques aides mémoires pour le Bash et le langage C"/>
 
 
 
@@ -85,48 +91,196 @@
             
             <div class="col-12 col-md-9 float-left content">
                 
-
-<div class="page-info">
-    <span>Total posts: 3</span>
-</div>
-
-
-
-<div class="post">
-    <h3 class="post-item post-title-archive">
-        <a href="https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/">Cryptographie asymétrique</a>
-    </h3>
-    <div class="post-item post-meta-archive">
-        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-01-12</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;482 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;3 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/cryptography">Cryptography</a>&nbsp;<a href="/tags/mathematics">Mathematics</a>&nbsp;</span>
-
-    </div>
-</div>
-
-<div class="post">
-    <h3 class="post-item post-title-archive">
-        <a href="https://shinoyasx.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/">Nginx &#43; PHP sur NetBSD</a>
-    </h3>
-    <div class="post-item post-meta-archive">
-        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2020-10-09</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;894 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;5 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/sysadmin">SysAdmin</a>&nbsp;<a href="/tags/web">web</a>&nbsp;</span>
-
-    </div>
-</div>
-
-<div class="post">
-    <h3 class="post-item post-title-archive">
+<article>
+    
+    <h2 class="post-item post-title">
         <a href="https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/">Memos Bash et C</a>
-    </h3>
-    <div class="post-item post-meta-archive">
+    </h2>
+    <div class="post-item post-meta">
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-05-02</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;369 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;2 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/programmation">Programmation</a>&nbsp;<a href="/tags/memo">memo</a>&nbsp;</span>
 
     </div>
-</div>
+    
+    
+    <div class="post-content markdown-body">
+        <h1 id="commandes-terminal">Commandes Terminal</h1>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Nom de la commande</th>
+<th>Effet</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>man</td>
+<td>Manuel</td>
+<td>Ouvre une page du manuel à la page donnée</td>
+<td><code>man man</code></td>
+</tr>
+<tr>
+<td>ls</td>
+<td>Listing</td>
+<td>Liste les fichiers du répertoire donné (ou courant si aucun répertoire donné)</td>
+<td><code>ls /</code></td>
+</tr>
+<tr>
+<td>cd</td>
+<td>Change Directory</td>
+<td>Modifie le répertoire courant au chemin indiqué</td>
+<td><code>cd /tmp</code></td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>Print Working Directory</td>
+<td>Affiche le répertoire courand</td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td>echo</td>
+<td>Echo</td>
+<td>Écrit dans la sortie standard une chaîne de charactères</td>
+<td><code>echo &quot;Hello, World!&quot;</code></td>
+</tr>
+<tr>
+<td>cat</td>
+<td>Concatenate</td>
+<td>Affiche le contenu d&rsquo;un fichier</td>
+<td><code>cat hello.txt</code></td>
+</tr>
+<tr>
+<td>grep</td>
+<td>Grep</td>
+<td>Recherche schéma dans un fichier ou un flux d&rsquo;entrée</td>
+<td>`lspci</td>
+</tr>
+<tr>
+<td>nano</td>
+<td>GNU nano</td>
+<td>Un éditeur de texte en terminal</td>
+<td><code>nano file.txt</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="flux-de-redirection">Flux de redirection</h2>
+<table>
+<thead>
+<tr>
+<th>Symbole</th>
+<th>Effet</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code></td>
+<td>Écrit la sortie standard dans un fichier</td>
+<td><code>echo &quot;Hello, World!&quot; &gt; hello.txt</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>Ajoute la sortie standard à la fin du fichier</td>
+<td><code>echo &quot;Hello, World!&quot; &gt;&gt; hello.txt</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Écrit le contenu d&rsquo;un fichier dans l&rsquo;entrée standard d&rsquo;un programme</td>
+<td><code>grep -i &quot;.txt&quot; &lt; liste.txt</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>` (Pipe)</td>
+<td>Lie la sortie standard d&rsquo;un programme à l&rsquo;entrée d&rsquo;un autre</td>
+</tr>
+</tbody>
+</table>
+<h1 id="langage-c">Langage C</h1>
+<h2 id="syntaxe">Syntaxe</h2>
+<h3 id="variable">Variable</h3>
+<pre><code class="language-c">type1 v1;       // Déclaration de la variable v1 avec le type type1
+v1 = 0;         // Assignation de la variable v1
+type2 v2 = 0;   // Déclaration et assignation de la variable
+                // v2 de type type2 à la valeur 0
+</code></pre>
+<h3 id="fonction">Fonction</h3>
+<pre><code class="language-c">r_type func_name(p1_type p1, p2_type p2, ...) {
+    /* 
+    *  Corps de la fonction
+    *  ...
+    */
+    return r_val;
+}
+</code></pre>
+<dl>
+<dt>r_type</dt>
+<dd>type de retour de la fonction. Cela peut être une <a href="#primitives">primitive</a> ou une <a href="#structures">structure</a>.</dd>
+<dt>func name</dt>
+<dd>nom de la fonction. Doit commencer par une lettre et peut contenir <code>_</code> et des chiffres.</dd>
+<dt>r_val</dt>
+<dd>valeur de retour de la fonction. Peut être une <a href="#variable">variable</a>, ou une expression.</dd>
+</dl>
+<h2 id="types">Types</h2>
+<h3 id="primitives">Primitives</h3>
+<table>
+<thead>
+<tr>
+<th>Type de donnée</th>
+<th>Valeurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>Code ASCII d&rsquo;un charactère, ou un nombre entre -128 et 127</td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>Code ASCII d&rsquo;un charactère, ou un nombre entre 0 et 255</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Un petit nombre entier</td>
+</tr>
+<tr>
+<td>unsigned short</td>
+<td>Un petit nombre entier positif</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Un nombre entier</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>Un nombre entier positif</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Un long nombre entier</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>Un long nombre entier positif</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Un nombre à virgule</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Un nombre à virgule avec double précision</td>
+</tr>
+<tr>
+<td>long double</td>
+<td>Un nombre à virgule avec une grande précision</td>
+</tr>
+</tbody>
+</table>
+<h3 id="structures">Structures</h3>
 
-
-
-
-
-
+    </div>
+</article>
 
 
 
@@ -204,6 +358,30 @@
     </div>
     
     
+    
+    <div class="sidebar-item sidebar-toc">
+        <h3>TOC</h3>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flux-de-redirection">Flux de redirection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a>
+      <ul>
+        <li><a href="#variable">Variable</a></li>
+        <li><a href="#fonction">Fonction</a></li>
+      </ul>
+    </li>
+    <li><a href="#types">Types</a>
+      <ul>
+        <li><a href="#primitives">Primitives</a></li>
+        <li><a href="#structures">Structures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
     
     
 </aside>
@@ -292,6 +470,32 @@
     </div>
     
     
+    
+    <div class="sidebar-item sidebar-toc">
+        <h3>TOC</h3>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flux-de-redirection">Flux de redirection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#syntaxe">Syntaxe</a>
+      <ul>
+        <li><a href="#variable">Variable</a></li>
+        <li><a href="#fonction">Fonction</a></li>
+      </ul>
+    </li>
+    <li><a href="#types">Types</a>
+      <ul>
+        <li><a href="#primitives">Primitives</a></li>
+        <li><a href="#structures">Structures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+    
   </div>
 </aside>
     </main>
@@ -307,6 +511,9 @@
     </div>
 </footer>
     
+<script defer src="https://cdn.jsdelivr.net/combine/npm/medium-zoom@1.0.6,npm/lazysizes@5.2.2"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-core.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 
 

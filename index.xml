@@ -6,7 +6,19 @@
     <description>Recent content on Hugo Haldi (ShinoYasx)&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 09 Oct 2020 02:47:02 +0200</lastBuildDate><atom:link href="https://shinoyasx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 May 2021 12:55:38 +0200</lastBuildDate><atom:link href="https://shinoyasx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptographie asymétrique</title>
+      <link>https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/</link>
+      <pubDate>Tue, 12 Jan 2021 20:32:02 +0200</pubDate>
+      
+      <guid>https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/</guid>
+      <description>RSA Génération des clés  \(\phi(n)\) : Indicatrice d&amp;rsquo;Euler
+ $$\phi(n) = n * \prod_{i=1}^m \left(1 - \frac{1}{p_i}\right)$$ avec \(P_i\) les \(m\) facteurs premiers de \(n\) .
+Soient \(p\) et \(q\) deux nombres premiers
+\(n = p \cdot q\) \(\phi(n) = (p - 1) \cdot (q - 1)\) Soit \(e\) premier avec \(\phi(n)\) tel que \(e &amp;lt; \phi(n)\) Soit \(d\) un entier tel que : \(d \cdot e = 1 [\phi(n)]\) Pour trouver d: $$d = e^{(\phi(\phi(n)) - 1)} \mod \phi(n)$$ car \(e^{\phi(n)} \equiv 1 [n] \implies e^{\phi(n)-1}e \equiv 1 [n] \implies e^{\phi(n)-1} \equiv e^{-1} [n]\) OU</description>
+    </item>
+    
     <item>
       <title>Nginx &#43; PHP sur NetBSD</title>
       <link>https://shinoyasx.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/</link>
@@ -16,6 +28,15 @@
       <description>Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.
 Cet article va traiter de l&amp;rsquo;installation du gestionnaire de paquets pkgin, de nginx et de php, ainsi de la configuration de ces derniers.
 Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante.</description>
+    </item>
+    
+    <item>
+      <title>Memos Bash et C</title>
+      <link>https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/</link>
+      <pubDate>Sun, 02 May 2021 12:55:38 +0200</pubDate>
+      
+      <guid>https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/</guid>
+      <description>Commandes Terminal    Commande Nom de la commande Effet Exemple     man Manuel Ouvre une page du manuel à la page donnée man man   ls Listing Liste les fichiers du répertoire donné (ou courant si aucun répertoire donné) ls /   cd Change Directory Modifie le répertoire courant au chemin indiqué cd /tmp   pwd Print Working Directory Affiche le répertoire courand pwd   echo Echo Écrit dans la sortie standard une chaîne de charactères echo &amp;quot;Hello, World!</description>
     </item>
     
   </channel>

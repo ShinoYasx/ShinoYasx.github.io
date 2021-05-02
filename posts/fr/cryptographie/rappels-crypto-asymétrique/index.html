@@ -15,20 +15,26 @@
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon.ico" />
 
 
-<title>Tags - Hugo Haldi (ShinoYasx)&#39;s blog</title>
+<title>Cryptographie asymétrique - Hugo Haldi (ShinoYasx)&#39;s blog</title>
 
 
 
+<meta name="description" content="Algorithmes des principales méthodes de cryptage asymétrique" />
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shinoyasx.github.io/tags/" />
+
+<meta name="keywords" content="Cryptography, Mathematics" />
+
+<meta property="og:title" content="Cryptographie asymétrique" />
+<meta property="og:description" content="Algorithmes des principales méthodes de cryptage asymétrique" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-12T20:32:02&#43;02:00" />
+<meta property="article:modified_time" content="2021-01-12T20:32:02&#43;02:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Cryptographie asymétrique"/>
+<meta name="twitter:description" content="Algorithmes des principales méthodes de cryptage asymétrique"/>
 
 
 
@@ -85,10 +91,8 @@
             
             <div class="col-12 col-md-9 float-left content">
                 
-
-
-
-<div class="post">
+<article>
+    
     <h2 class="post-item post-title">
         <a href="https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/">Cryptographie asymétrique</a>
     </h2>
@@ -96,47 +100,166 @@
         <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-01-12</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;482 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;3 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/cryptography">Cryptography</a>&nbsp;<a href="/tags/mathematics">Mathematics</a>&nbsp;</span>
 
     </div>
-    <div class="post-item post-summary markdown-body">
-        RSA Génération des clés  \(\phi(n)\) : Indicatrice d&rsquo;Euler
- $$\phi(n) = n * \prod_{i=1}^m \left(1 - \frac{1}{p_i}\right)$$ avec \(P_i\) les \(m\) facteurs premiers de \(n\) .
-Soient \(p\) et \(q\) deux nombres premiers
-\(n = p \cdot q\) \(\phi(n) = (p - 1) \cdot (q - 1)\) Soit \(e\) premier avec \(\phi(n)\) tel que \(e &lt; \phi(n)\) Soit \(d\) un entier tel que : \(d \cdot e = 1 [\phi(n)]\) Pour trouver d: $$d = e^{(\phi(\phi(n)) - 1)} \mod \phi(n)$$ car \(e^{\phi(n)} \equiv 1 [n] \implies e^{\phi(n)-1}e \equiv 1 [n] \implies e^{\phi(n)-1} \equiv e^{-1} [n]\) OU
+    
+    
+    <div class="post-content markdown-body">
+        <h2 id="rsa">RSA</h2>
+<h3 id="génération-des-clés">Génération des clés</h3>
+<p>
+\(\phi(n)\)
+ : <a href="https://www.dcode.fr/indicatrice-euler" target="_blank">Indicatrice d&rsquo;Euler</a></p>
+<p>
+$$
+\phi(n) = n * \prod_{i=1}^m \left(1 - \frac{1}{p_i}\right)$$
+
+avec 
+\(P_i\)
+ les 
+\(m\)
+ <a href="https://www.dcode.fr/decomposition-nombres-premiers" target="_blank">facteurs premiers</a> de 
+\(n\)
+ .</p>
+<p>Soient 
+\(p\)
+ et 
+\(q\)
+ deux nombres premiers</p>
+
+\(n = p \cdot q\)
+
+
+\(\phi(n) = (p - 1) \cdot (q - 1)\)
+
+<p>Soit 
+\(e\)
+ premier avec 
+\(\phi(n)\)
+ tel que 
+\(e &lt; \phi(n)\)
+</p>
+<p>Soit 
+\(d\)
+ un entier tel que : 
+\(d \cdot e = 1 [\phi(n)]\)
+</p>
+<p>Pour trouver d:
+
+$$
+d = e^{(\phi(\phi(n)) - 1)} \mod \phi(n)$$
+</p>
+<p>car 
+\(e^{\phi(n)} \equiv 1 [n] \implies e^{\phi(n)-1}e \equiv 1 [n] \implies e^{\phi(n)-1} \equiv e^{-1} [n]\)
+</p>
+<p>OU</p>
+<p>utiliser l&rsquo;algorithme d&rsquo;Euclide étendu pour trouver les coefficients 
+\(u\)
+ et 
+\(v\)
+ tels que 
+\(e \cdot u &#43; \phi(n) \cdot v = \text{pgcd}(e,\phi(n)) = 1\)
+. 
+\(u \mod \phi(n)\)
+ est alors l&rsquo;inverse modulaire de 
+\(e\)
+, 
+\(d=u \mod \phi(n)\)
+.</p>
+<p>Clé publique: 
+\((e, n)\)
+<br>
+Clé privée: 
+\((d, n)\)
+</p>
+<h3 id="utilisation">Utilisation</h3>
+<h4 id="chiffrage-et-déchiffrage">Chiffrage et déchiffrage</h4>
+<h5 id="chiffrage">Chiffrage</h5>
+<p>Bob veut envoyer un message chiffré à Alice. Bob applique donc RSA en utilisant la clé publique d&rsquo;Alice à son message M:</p>
+
+$$
+C = M^e \mod n$$
+
+<h5 id="déchiffrage">Déchiffrage</h5>
+<p>Alice veut déchiffrer le message envoyé par Bob, elle utilise donc sa clé privée :</p>
+
+$$
+M = C^d \mod n$$
+
+<h4 id="signature">Signature</h4>
+<h5 id="créer-une-signature">Créer une signature</h5>
+<p>Bob veut signer un document pour certifier qu&rsquo;il n&rsquo;a pas été altéré. Pour cela il applique sa clé privée à un digest 
+\(D\)
+ du document :</p>
+
+$$
+S = D^d \mod n$$
+
+<h5 id="vérifier-une-signature">Vérifier une signature</h5>
+<p>Ensuite n&rsquo;importe qui peut appliquer la clé publique de Bob sur la signature pour vérifier la signature :</p>
+
+$$
+D&#39; = S^e \mod n$$
+
+<p>Enfin si 
+\(D = D&#39;\)
+, alors le document a bien été signé par Bob. Sinon, quelqu&rsquo;un a tenté de modifier le document ou d&rsquo;usurper l&rsquo;identité de Bob.</p>
+<h2 id="elgamal">ElGamal</h2>
+<h3 id="génération-des-clés-1">Génération des clés</h3>
+<p>Chaque entité génère ses propres clés, une publique et une privée.</p>
+<p>Alice génère un grand nombre premier 
+\(p\)
+, et un générateur 
+\(\alpha\)
+ du groupe multiplicatif 
+\(\mathbb{Z}_p^*\)
+, i.e. 
+\(\text{ord}_p(\alpha) = p-1\)
+ (car 
+\(\alpha\)
+ est générateur 
+\(\iff \text{ord}_p(\alpha) = \phi(p) = p-1\)
+)</p>
+<p>Alice génère alors un nombre aléatoire 
+\(a &lt; p-1\)
+, et calcule 
+\(\alpha^a \mod p\)
+</p>
+<p>La clé publique de Alice est 
+\((p, \alpha, \alpha^a \mod p)\)
+, sa clé privée est 
+\(a\)
+.</p>
+<h3 id="chiffrage-1">Chiffrage</h3>
+<p>Bob souhaite envoyer un message crypté à Alice. Bob génère alors un nombre aléatoire 
+\(k &lt; p-1\)
+. Bob calcule 
+\(\lambda\)
+ et 
+\(\sigma\)
+:
+$$\begin{cases}
+\lambda = \alpha^k \mod p \<br>
+\sigma = m \cdot (\alpha^a)^k \mod p
+\end{cases}$$
+et envoit le ciphertext 
+\(c = (\lambda, \sigma)\)
+ à Alice.</p>
+<h3 id="déchiffrage-1">Déchiffrage</h3>
+<p>Alice reçoit un message chiffré et tente de le déchiffrer. Alice calcule alors 
+\(x = \lambda^{p-1-a} \equiv \lambda^{-a} \equiv \alpha^{-ak} [p]\)
+. Finalement Alice déchiffre le message reçu avec
+
+$$
+m&#39; = x \cdot \sigma \mod p$$
+
+car 
+\(m&#39; = \alpha^{-ak} \cdot m \cdot \alpha^{ak} = m\)
+.</p>
+<p>$$
+\sum_{k=0}^{\infty} \frac{x^k}{k!} = \exp{x}
+$$</p>
+
     </div>
-</div>
-
-<div class="post">
-    <h2 class="post-item post-title">
-        <a href="https://shinoyasx.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/">Nginx &#43; PHP sur NetBSD</a>
-    </h2>
-    <div class="post-item post-meta">
-        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2020-10-09</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;894 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;5 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/sysadmin">SysAdmin</a>&nbsp;<a href="/tags/web">web</a>&nbsp;</span>
-
-    </div>
-    <div class="post-item post-summary markdown-body">
-        Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.
-Cet article va traiter de l&rsquo;installation du gestionnaire de paquets pkgin, de nginx et de php, ainsi de la configuration de ces derniers.
-Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante.
-    </div>
-</div>
-
-<div class="post">
-    <h2 class="post-item post-title">
-        <a href="https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/">Memos Bash et C</a>
-    </h2>
-    <div class="post-item post-meta">
-        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-05-02</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;369 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;2 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/programmation">Programmation</a>&nbsp;<a href="/tags/memo">memo</a>&nbsp;</span>
-
-    </div>
-    <div class="post-item post-summary markdown-body">
-        Commandes Terminal    Commande Nom de la commande Effet Exemple     man Manuel Ouvre une page du manuel à la page donnée man man   ls Listing Liste les fichiers du répertoire donné (ou courant si aucun répertoire donné) ls /   cd Change Directory Modifie le répertoire courant au chemin indiqué cd /tmp   pwd Print Working Directory Affiche le répertoire courand pwd   echo Echo Écrit dans la sortie standard une chaîne de charactères echo &quot;Hello, World!
-    </div>
-</div>
-
-
-
-
-
-
+</article>
 
 
 
@@ -214,6 +337,27 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
     </div>
     
     
+    
+    <div class="sidebar-item sidebar-toc">
+        <h3>TOC</h3>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rsa">RSA</a>
+      <ul>
+        <li><a href="#génération-des-clés">Génération des clés</a></li>
+        <li><a href="#utilisation">Utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#elgamal">ElGamal</a>
+      <ul>
+        <li><a href="#génération-des-clés-1">Génération des clés</a></li>
+        <li><a href="#chiffrage-1">Chiffrage</a></li>
+        <li><a href="#déchiffrage-1">Déchiffrage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
     
     
 </aside>
@@ -302,6 +446,29 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
     </div>
     
     
+    
+    <div class="sidebar-item sidebar-toc">
+        <h3>TOC</h3>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rsa">RSA</a>
+      <ul>
+        <li><a href="#génération-des-clés">Génération des clés</a></li>
+        <li><a href="#utilisation">Utilisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#elgamal">ElGamal</a>
+      <ul>
+        <li><a href="#génération-des-clés-1">Génération des clés</a></li>
+        <li><a href="#chiffrage-1">Chiffrage</a></li>
+        <li><a href="#déchiffrage-1">Déchiffrage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+    
   </div>
 </aside>
     </main>
@@ -324,6 +491,15 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
 
 
 <script defer src="/assets/js/fuji.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"
+></script>
+
 
 
 </body>

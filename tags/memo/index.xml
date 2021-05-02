@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memo on Hugo Haldi (ShinoYasx)&#39;s blog</title>
+    <link>https://shinoyasx.github.io/tags/memo/</link>
+    <description>Recent content in memo on Hugo Haldi (ShinoYasx)&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sun, 02 May 2021 12:55:38 +0200</lastBuildDate><atom:link href="https://shinoyasx.github.io/tags/memo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memos Bash et C</title>
+      <link>https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/</link>
+      <pubDate>Sun, 02 May 2021 12:55:38 +0200</pubDate>
+      
+      <guid>https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/</guid>
+      <description>Commandes Terminal    Commande Nom de la commande Effet Exemple     man Manuel Ouvre une page du manuel à la page donnée man man   ls Listing Liste les fichiers du répertoire donné (ou courant si aucun répertoire donné) ls /   cd Change Directory Modifie le répertoire courant au chemin indiqué cd /tmp   pwd Print Working Directory Affiche le répertoire courand pwd   echo Echo Écrit dans la sortie standard une chaîne de charactères echo &amp;quot;Hello, World!</description>
+    </item>
+    
+  </channel>
+</rss>

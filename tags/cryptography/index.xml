@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptography on Hugo Haldi (ShinoYasx)&#39;s blog</title>
+    <link>https://shinoyasx.github.io/tags/cryptography/</link>
+    <description>Recent content in Cryptography on Hugo Haldi (ShinoYasx)&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Tue, 12 Jan 2021 20:32:02 +0200</lastBuildDate><atom:link href="https://shinoyasx.github.io/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptographie asymétrique</title>
+      <link>https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/</link>
+      <pubDate>Tue, 12 Jan 2021 20:32:02 +0200</pubDate>
+      
+      <guid>https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/</guid>
+      <description>RSA Génération des clés  \(\phi(n)\) : Indicatrice d&amp;rsquo;Euler
+ $$\phi(n) = n * \prod_{i=1}^m \left(1 - \frac{1}{p_i}\right)$$ avec \(P_i\) les \(m\) facteurs premiers de \(n\) .
+Soient \(p\) et \(q\) deux nombres premiers
+\(n = p \cdot q\) \(\phi(n) = (p - 1) \cdot (q - 1)\) Soit \(e\) premier avec \(\phi(n)\) tel que \(e &amp;lt; \phi(n)\) Soit \(d\) un entier tel que : \(d \cdot e = 1 [\phi(n)]\) Pour trouver d: $$d = e^{(\phi(\phi(n)) - 1)} \mod \phi(n)$$ car \(e^{\phi(n)} \equiv 1 [n] \implies e^{\phi(n)-1}e \equiv 1 [n] \implies e^{\phi(n)-1} \equiv e^{-1} [n]\) OU</description>
+    </item>
+    
+  </channel>
+</rss>

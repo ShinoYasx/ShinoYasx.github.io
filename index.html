@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<meta name="generator" content="Hugo 0.80.0" />
+<meta name="generator" content="Hugo 0.82.0" />
 
 
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/favicons/favicon.ico" />
@@ -24,7 +24,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://shinoyasx.github.io/" />
-<meta property="og:updated_time" content="2020-10-09T02:47:02+02:00" />
+
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo Haldi (ShinoYasx)&#39;s blog"/>
@@ -90,6 +90,22 @@
 
 <div class="post">
     <h2 class="post-item post-title">
+        <a href="https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/">Cryptographie asymétrique</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-01-12</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;482 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;3 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/cryptography">Cryptography</a>&nbsp;<a href="/tags/mathematics">Mathematics</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        RSA Génération des clés  \(\phi(n)\) : Indicatrice d&rsquo;Euler
+ $$\phi(n) = n * \prod_{i=1}^m \left(1 - \frac{1}{p_i}\right)$$ avec \(P_i\) les \(m\) facteurs premiers de \(n\) .
+Soient \(p\) et \(q\) deux nombres premiers
+\(n = p \cdot q\) \(\phi(n) = (p - 1) \cdot (q - 1)\) Soit \(e\) premier avec \(\phi(n)\) tel que \(e &lt; \phi(n)\) Soit \(d\) un entier tel que : \(d \cdot e = 1 [\phi(n)]\) Pour trouver d: $$d = e^{(\phi(\phi(n)) - 1)} \mod \phi(n)$$ car \(e^{\phi(n)} \equiv 1 [n] \implies e^{\phi(n)-1}e \equiv 1 [n] \implies e^{\phi(n)-1} \equiv e^{-1} [n]\) OU
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
         <a href="https://shinoyasx.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/">Nginx &#43; PHP sur NetBSD</a>
     </h2>
     <div class="post-item post-meta">
@@ -100,6 +116,19 @@
         Introduction Vous avez installé NetBSD sur votre grille-pain, mais vous ne savez pas quoi en faire ? Ne cherchez plus! Grâce à cet article, vous pourrez héberger votre site web sur votre merveilleux appareil à fabriquer des toasts.
 Cet article va traiter de l&rsquo;installation du gestionnaire de paquets pkgin, de nginx et de php, ainsi de la configuration de ces derniers.
 Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous pouvez passer à la section suivante.
+    </div>
+</div>
+
+<div class="post">
+    <h2 class="post-item post-title">
+        <a href="https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/">Memos Bash et C</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-05-02</span><span><i class="iconfont icon-file-tray-sharp"></i>&nbsp;369 words</span><span><i class="iconfont icon-time-sharp"></i>&nbsp;2 minutes</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;<a href="/tags/programmation">Programmation</a>&nbsp;<a href="/tags/memo">memo</a>&nbsp;</span>
+
+    </div>
+    <div class="post-item post-summary markdown-body">
+        Commandes Terminal    Commande Nom de la commande Effet Exemple     man Manuel Ouvre une page du manuel à la page donnée man man   ls Listing Liste les fichiers du répertoire donné (ou courant si aucun répertoire donné) ls /   cd Change Directory Modifie le répertoire courant au chemin indiqué cd /tmp   pwd Print Working Directory Affiche le répertoire courand pwd   echo Echo Écrit dans la sortie standard une chaîne de charactères echo &quot;Hello, World!
     </div>
 </div>
 
@@ -156,6 +185,22 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
     <div class="sidebar-item sidebar-tags">
         <h3>Tags</h3>
         <div>
+            
+            <span>
+                <a href="/tags/cryptography/">Cryptography</a>
+            </span>
+            
+            <span>
+                <a href="/tags/mathematics/">Mathematics</a>
+            </span>
+            
+            <span>
+                <a href="/tags/memo/">memo</a>
+            </span>
+            
+            <span>
+                <a href="/tags/programmation/">Programmation</a>
+            </span>
             
             <span>
                 <a href="/tags/sysadmin/">SysAdmin</a>
@@ -228,6 +273,22 @@ Installation de pkgin Si vous avez déjà pkgin installé sur votre NetBSD, vous
     <div class="sidebar-item sidebar-tags">
         <h3>Tags</h3>
         <div>
+            
+            <span>
+                <a href="/tags/cryptography/">Cryptography</a>
+            </span>
+            
+            <span>
+                <a href="/tags/mathematics/">Mathematics</a>
+            </span>
+            
+            <span>
+                <a href="/tags/memo/">memo</a>
+            </span>
+            
+            <span>
+                <a href="/tags/programmation/">Programmation</a>
+            </span>
             
             <span>
                 <a href="/tags/sysadmin/">SysAdmin</a>
