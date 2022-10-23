@@ -1,63 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hugo Haldi (ShinoYasx)&#39;s blog</title>
-    <link>https://shinoyasx.github.io/tags/</link>
-    <description>Recent content in Tags on Hugo Haldi (ShinoYasx)&#39;s blog</description>
+    <title>Tags on Hugo Haldi&#39;s blog</title>
+    <link>https://haldih.github.io/tags/</link>
+    <description>Recent content in Tags on Hugo Haldi&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 02 May 2021 12:55:38 +0200</lastBuildDate><atom:link href="https://shinoyasx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>memo</title>
-      <link>https://shinoyasx.github.io/tags/memo/</link>
-      <pubDate>Sun, 02 May 2021 12:55:38 +0200</pubDate>
-      
-      <guid>https://shinoyasx.github.io/tags/memo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programmation</title>
-      <link>https://shinoyasx.github.io/tags/programmation/</link>
-      <pubDate>Sun, 02 May 2021 12:55:38 +0200</pubDate>
-      
-      <guid>https://shinoyasx.github.io/tags/programmation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cryptography</title>
-      <link>https://shinoyasx.github.io/tags/cryptography/</link>
-      <pubDate>Tue, 12 Jan 2021 20:32:02 +0200</pubDate>
-      
-      <guid>https://shinoyasx.github.io/tags/cryptography/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mathematics</title>
-      <link>https://shinoyasx.github.io/tags/mathematics/</link>
-      <pubDate>Tue, 12 Jan 2021 20:32:02 +0200</pubDate>
-      
-      <guid>https://shinoyasx.github.io/tags/mathematics/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 09 Oct 2020 02:47:02 +0200</lastBuildDate><atom:link href="https://haldih.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SysAdmin</title>
-      <link>https://shinoyasx.github.io/tags/sysadmin/</link>
+      <link>https://haldih.github.io/tags/sysadmin/</link>
       <pubDate>Fri, 09 Oct 2020 02:47:02 +0200</pubDate>
       
-      <guid>https://shinoyasx.github.io/tags/sysadmin/</guid>
+      <guid>https://haldih.github.io/tags/sysadmin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web</title>
-      <link>https://shinoyasx.github.io/tags/web/</link>
+      <link>https://haldih.github.io/tags/web/</link>
       <pubDate>Fri, 09 Oct 2020 02:47:02 +0200</pubDate>
       
-      <guid>https://shinoyasx.github.io/tags/web/</guid>
+      <guid>https://haldih.github.io/tags/web/</guid>
       <description></description>
     </item>
     

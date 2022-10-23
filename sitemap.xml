@@ -2,44 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shinoyasx.github.io/posts/fr/cryptographie/rappels-crypto-asym%C3%A9trique/</loc>
-    <lastmod>2021-01-12T20:32:02+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/</loc>
+    <loc>https://haldih.github.io/posts/fr/web/nginx-&#43;-php-on-netbsd/</loc>
     <lastmod>2020-10-09T02:47:02+02:00</lastmod>
   </url><url>
-    <loc>https://shinoyasx.github.io/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/memo/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/posts/fr/programmation/memos-bash-c/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/posts/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/programmation/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/</loc>
-    <lastmod>2021-05-02T12:55:38+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/cryptography/</loc>
-    <lastmod>2021-01-12T20:32:02+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/mathematics/</loc>
-    <lastmod>2021-01-12T20:32:02+02:00</lastmod>
-  </url><url>
-    <loc>https://shinoyasx.github.io/tags/sysadmin/</loc>
+    <loc>https://haldih.github.io/</loc>
     <lastmod>2020-10-09T02:47:02+02:00</lastmod>
   </url><url>
-    <loc>https://shinoyasx.github.io/tags/web/</loc>
+    <loc>https://haldih.github.io/posts/</loc>
     <lastmod>2020-10-09T02:47:02+02:00</lastmod>
   </url><url>
-    <loc>https://shinoyasx.github.io/archives/</loc>
+    <loc>https://haldih.github.io/tags/sysadmin/</loc>
+    <lastmod>2020-10-09T02:47:02+02:00</lastmod>
   </url><url>
-    <loc>https://shinoyasx.github.io/search/</loc>
+    <loc>https://haldih.github.io/tags/</loc>
+    <lastmod>2020-10-09T02:47:02+02:00</lastmod>
+  </url><url>
+    <loc>https://haldih.github.io/tags/web/</loc>
+    <lastmod>2020-10-09T02:47:02+02:00</lastmod>
+  </url><url>
+    <loc>https://haldih.github.io/archives/</loc>
+  </url><url>
+    <loc>https://haldih.github.io/search/</loc>
   </url>
 </urlset>
